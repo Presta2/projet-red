@@ -27,7 +27,7 @@ func isDead(p *Player) {
 	}
 }
 
-func main() {
+func Joueur() {
 	player := Player{Name: "Arthas", HP: 0, MaxHP: 100, IsAlive: true}
 	isDead(&player)
 }

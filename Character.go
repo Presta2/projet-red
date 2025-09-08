@@ -31,3 +31,10 @@ func (c Character) displayInfo() {
 	fmt.Printf("PV : %d/%d\n", c.CurrentHP, c.MaxHP)
 	fmt.Printf("Inventaire : %v\n", c.Inventory)
 }
+
+func (c Character) accessInventory() {
+	fmt.Println("Inventaire du personnage :")
+	for i, item := range c.Inventory {
+		fmt.Printf("%d. %s\n", i+1, item)
+	}
+}

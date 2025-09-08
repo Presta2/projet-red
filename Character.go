@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Character struct {
 	Name      string
 	Class     string
@@ -21,3 +23,11 @@ func initCharacter(name, class string, level, maxHP, currentHP int, inventory []
 }
 
 func main()
+
+func (c Character) displayInfo() {
+	fmt.Printf("Nom : %s\n", c.Name)
+	fmt.Printf("Classe : %s\n", c.Class)
+	fmt.Printf("Niveau : %d\n", c.Level)
+	fmt.Printf("PV : %d/%d\n", c.CurrentHP, c.MaxHP)
+	fmt.Printf("Inventaire : %v\n", c.Inventory)
+}

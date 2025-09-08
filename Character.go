@@ -21,4 +21,3 @@ func initCharacter(name, class string, level, maxHP, currentHP int, inventory []
 }
 
 func main()
-+

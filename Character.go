@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // Définition de la structure Character
 type Character struct {
@@ -36,8 +39,12 @@ func (c Character) DisplayInfo() {
 // Méthode pour afficher l'inventaire
 func (c Character) AccessInventory() {
 	fmt.Println("Inventaire du personnage :")
-	for i, item := range c.Inventory {
-		fmt.Printf("%d. %s\n", i+1, item)
+	if len(c.Inventory) == 0 {
+		fmt.Println("L’inventaire est vide.")
+	} else {
+		for i, item := range c.Inventory {
+			fmt.Printf("%d. %s\n", i+1, item)
+		}
 	}
 }
 
@@ -46,8 +53,31 @@ func main() {
 	// Création d'un personnage
 	char := NewCharacter("Arthas", "Guerrier", 5, 100, 85, []string{"Épée", "Bouclier", "Potion de soin"})
 
-	// Affichage des infos et de l'inventaire
-	char.DisplayInfo()
-	fmt.Println()
-	char.AccessInventory()
+	// Boucle du menu
+	for {
+		fmt.Println("\n===== MENU PRINCIPAL =====")
+		fmt.Println("1. Afficher les informations du personnage")
+		fmt.Println("2. Accéder au contenu de l’inventaire")
+		fmt.Println("3. Quitter")
+		fmt.Print("Choisis une option : ")
+
+		var choice int
+		_, err := fmt.Scanln(&choice)
+		if err != nil {
+			fmt.Println("Erreur de saisie, réessaie...")
+			continue
+		}
+
+		switch choice {
+		case 1:
+			char.DisplayInfo()
+		case 2:
+			char.AccessInventory()
+		case 3:
+			fmt.Println("Au revoir !")
+			os.Exit(0)
+		default:
+			fmt.Println("Choix invalide.")
+		}
+	}
 }

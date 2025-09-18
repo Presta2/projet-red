@@ -7,28 +7,28 @@ import (
 )
 
 type Equipment struct {
-	Head  string
-	Torso string
-	Feet  string
+	Head  string // Équipement porté sur la tête
+	Torso string // Équipement porté sur le torse
+	Feet  string // Équipement porté aux pieds
 }
 
 type Character struct {
-	Name              string
-	Class             string
-	Level             int
-	HPMax             int
-	HP                int
-	Inventory         []string
-	InventoryLimit    int
-	InventoryUpgrades int
-	Gold              int
-	Skills            []string
-	Equipment         Equipment
-	ManaMax           int
-	Mana              int
-	Experience        int
-	ExperienceMax     int
-	Initiative        int
+	Name              string    // Nom du personnage
+	Class             string    // Classe du personnage (Humain, Elfe, Nain)
+	Level             int       // Niveau du personnage
+	HPMax             int       // Points de vie maximum
+	HP                int       // Points de vie actuels
+	Inventory         []string  // Liste des objets possédés
+	InventoryLimit    int       // Limite d’objets dans l’inventaire
+	InventoryUpgrades int       // Nombre d’extensions d’inventaire
+	Gold              int       // Quantité d’or
+	Skills            []string  // Liste des compétences apprises
+	Equipment         Equipment // Équipement porté
+	ManaMax           int       // Mana maximum
+	Mana              int       // Mana actuel
+	Experience        int       // XP actuel
+	ExperienceMax     int       // XP nécessaire pour le prochain niveau
+	Initiative        int       // Vitesse d’action en combat
 }
 
 func (c *Character) DisplayInfo() {
